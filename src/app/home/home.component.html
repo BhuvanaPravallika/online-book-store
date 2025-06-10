@@ -1,0 +1,49 @@
+<div class="navbar">
+  <div class="logo">📚 MyBookStore</div>
+
+  <div class="nav-links">
+    <ng-container *ngIf="isLoggedIn(); else guestLinks">
+      <button (click)="viewProfile()">👤 Profile</button>
+      <button (click)="viewCart()">🛒 Cart</button>
+      <button (click)="logout()">🚪 Logout</button>
+    </ng-container>
+
+    <ng-template #guestLinks>
+      <button routerLink="/login">🔐 Login</button>
+      <button routerLink="/register">📝 Register</button>
+    </ng-template>
+  </div>
+</div>
+
+<!-- Search and Category filter -->
+<div class="filters" style="margin: 20px;">
+  <input
+    type="text"
+    placeholder="Search books by title..."
+    [(ngModel)]="searchText"
+    (input)="onSearchChange()"
+  />
+
+  <select [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
+    <option value="all">All Categories</option>
+    <option *ngFor="let category of categories" [value]="category.category_Name">
+      {{ category.category_Name }}
+    </option>
+  </select>
+</div>
+
+<div class="book-container" *ngIf="filteredBooks.length > 0; else noBooks">
+  <div *ngFor="let book of filteredBooks" class="book-card">
+    <img [src]="book.imageUrl" alt="{{ book.title }}" class="book-image" />
+    <div class="book-details">
+      <h3>{{ book.title }}</h3>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Price:</strong> ₹{{ book.price }}</p>
+      <button (click)="addToCart(book)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noBooks>
+  <p>No books found matching your criteria.</p>
+</ng-template>

@@ -1,0 +1,56 @@
+<div class="navbar">
+  <div class="logo">📚 MyBookStore - Admin</div>
+
+  <div class="nav-links">
+    <ng-container *ngIf="isLoggedIn(); else guestLinks">
+      <button (click)="viewProfile()">👤 Profile</button>
+      <button (click)="addBook()">➕ Add Book</button>
+      <button (click)="logout()">🚪 Logout</button>
+    </ng-container>
+
+    <ng-template #guestLinks>
+       <button (click)="logout()">🚪 Logout</button>
+      <button (click)="addBook()">➕ Add Book</button>
+     
+      
+    </ng-template>
+  </div>
+</div>
+
+<!-- Search and Category filter -->
+<div class="filters" style="margin: 20px;">
+  <input
+    type="text"
+    placeholder="Search books by title..."
+    [(ngModel)]="searchText"
+    (input)="onSearchChange()"
+  />
+
+  <select [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
+    <option value="all">All Categories</option>
+    <option *ngFor="let category of categories" [value]="category.category_Name">
+      {{ category.category_Name }}
+    </option>
+  </select>
+</div>
+
+<div class="book-container" *ngIf="filteredBooks.length > 0; else noBooks">
+  <div *ngFor="let book of filteredBooks" class="book-card">
+    <img [src]="book.imageUrl" alt="{{ book.title }}" class="book-image" />
+    <div class="book-details">
+      <h3>{{ book.title }}</h3>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Price:</strong> ₹{{ book.price }}</p>
+      <div class="book-actions">
+        <button class="delete-btn" (click)="deleteBook(book)">🗑️ Delete</button>
+        <button class="update-btn" (click)="updateBook(book)">✏️ Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noBooks>
+  <p style="text-align:center; font-size: 1.1rem; color: #555;">
+    No books found for your search or filter.
+  </p>
+</ng-template>

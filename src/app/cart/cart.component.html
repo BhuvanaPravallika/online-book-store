@@ -1,0 +1,29 @@
+<button class="back-to-home-btn" routerLink="/" routerLinkActive="active-link">
+  ← Back to Home
+</button>
+
+
+
+<div class="cart-container">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    Your cart is empty.
+  </div>
+
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.book.imageUrl" alt="{{ item.book.title }}" class="book-image" />
+    <div class="item-details">
+      <h4>{{ item.book.title }}</h4>
+      <p class="author">by {{ item.book.author }}</p>
+      <p>Price: <span class="price">₹{{ item.book.price }}</span></p>
+      <p>Quantity: <span class="quantity">{{ item.quantity }}</span></p>
+      <button class="remove-btn" (click)="removeItem(item.cartItemId)">Remove</button>
+    </div>
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="cart-total">
+    <h3>Total: ₹{{ total }}</h3>
+    <button class="checkout-btn" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>

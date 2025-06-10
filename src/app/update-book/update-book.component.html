@@ -1,0 +1,32 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="book-form">
+  <label>Title:</label>
+  <input type="text" formControlName="title" />
+
+  <label>Author:</label>
+  <input type="text" formControlName="author" />
+
+  <label>Price:</label>
+  <input type="number" formControlName="price" />
+
+  <label>Image URL:</label>
+  <input type="text" formControlName="imageUrl" />
+
+  <label>Description:</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Stock:</label>
+  <input type="number" formControlName="stock" />
+
+  <label>Category:</label>
+  <select formControlName="category">
+    <option value="">Select Category</option>
+    <option *ngFor="let cat of categories" [value]="cat.category_Name">
+      {{ cat.category_Name }}
+    </option>
+  </select>
+
+  <div class="button-group">
+    <button type="button" (click)="goBack()" class="back-button">Back</button>
+    <button type="submit" [disabled]="bookForm.invalid" class="submit-button">Update Book</button>
+  </div>
+</form>

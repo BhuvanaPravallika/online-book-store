@@ -1,0 +1,247 @@
+/* 👇 Shared styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #673ab7;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links button {
+  background: #9575cd;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 10px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links button:hover {
+  background-color: #7e57c2;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.book-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 320px;      /* increased from 260px */
+  height: 280px;     /* increased from 220px */
+  margin: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+}
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+.book-image {
+  display: block;
+  width: 260px;      /* increased from 200px */
+  height: 55%;       /* slightly larger height */
+  object-fit: contain;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+.book-details {
+  padding: 8px 12px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.book-details h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+
+.book-details p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Container for buttons */
+.book-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0 0 0;
+}
+
+/* Base button style */
+.book-actions button {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+}
+
+/* Delete button: vibrant coral/red gradient */
+.book-actions button.delete-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee4b4b);
+  box-shadow: 0 3px 8px rgba(238, 75, 75, 0.5);
+}
+
+.book-actions button.delete-btn:hover {
+  background: linear-gradient(135deg, #ee4b4b, #d43535);
+  box-shadow: 0 6px 15px rgba(212, 53, 53, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Update button: fresh teal/blue-green gradient */
+.book-actions button.update-btn {
+  background: linear-gradient(135deg, #4db6ac, #009688);
+  box-shadow: 0 3px 8px rgba(0, 150, 136, 0.5);
+}
+
+.book-actions button.update-btn:hover {
+  background: linear-gradient(135deg, #009688, #00796b);
+  box-shadow: 0 6px 15px rgba(0, 121, 107, 0.7);
+  transform: translateY(-2px);
+}
+
+/* 🔍 Filter section */
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Search box base */
+.filters input[type="text"] {
+  position: relative;
+  padding: 12px 50px 12px 40px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+  color: #0a2a66;
+  outline: none;
+  min-width: 280px;
+
+  /* 💫 Smooth transitions */
+  transition: all 0.3s ease, color 0.2s ease, font-weight 0.2s;
+}
+
+/* 🔍 Emoji icon inside input */
+.filters input[type="text"] {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><text y="18" font-size="18">🔍</text></svg>');
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 20px 20px;
+}
+
+/* Placeholder style */
+.filters input[type="text"]::placeholder {
+  color: #5a6ca8;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Focus effect */
+.filters input[type="text"]:focus {
+  background: linear-gradient(135deg, #d1defe, #a3b9ff);
+  box-shadow: 0 0 12px 3px rgba(0, 123, 255, 0.5);
+  color: #001f7a;
+  transform: scale(1.05);
+}
+
+/* 🎯 When user types text (not empty) */
+.filters input[type="text"]:not(:placeholder-shown) {
+  background: linear-gradient(135deg, #cbdfff, #a8c4ff);
+  box-shadow: 0 0 14px 4px rgba(0, 123, 255, 0.6);
+  color: #001f7a;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transform: scale(1.04);
+  transition: all 0.3s ease;
+}
+
+/* Dropdown */
+.filters select {
+  padding: 12px 45px 12px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.15);
+  color: #0a2a66;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  min-width: 240px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%230a2a66" height="24" viewBox="0 0 24 24" width="24"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 20px 20px;
+}
+
+/* Dropdown hover/focus */
+.filters select:hover,
+.filters select:focus {
+  background: linear-gradient(135deg, #d1defe, #a3b9ff);
+  box-shadow: 0 0 12px 3px rgba(0, 123, 255, 0.5);
+  transform: scale(1.05);
+  color: #001f7a;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input[type="text"],
+  .filters select {
+    min-width: 100%;
+  }
+
+  .book-container {
+    justify-content: center;
+  }
+}

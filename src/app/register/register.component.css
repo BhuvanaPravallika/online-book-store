@@ -1,0 +1,129 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  animation: fadeInBackground 1.5s ease forwards;
+}
+
+@keyframes fadeInBackground {
+  from { background-position: 0 0; }
+  to { background-position: 100% 100%; }
+}
+
+.register-form {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  animation: fadeInForm 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInForm {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #444;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.register-form input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  background-color: #fff;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #007BFF, #0056b3);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease, background 0.4s ease;
+  box-shadow: 0 5px 12px rgba(0, 123, 255, 0.4);
+}
+
+.register-form button:hover {
+  background: linear-gradient(45deg, #0056b3, #003d80);
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 86, 179, 0.6);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeInError 0.4s forwards;
+}
+
+@keyframes fadeInError {
+  to {
+    opacity: 1;
+  }
+}
+
+.switch-link {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  user-select: none;
+}
+
+.switch-link a {
+  color: #3f51b5;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+  color: #1a237e;
+  text-decoration: underline;
+  cursor: pointer;
+}

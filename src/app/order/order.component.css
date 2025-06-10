@@ -1,0 +1,93 @@
+.orders-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0 20px;
+  color: #34495e;
+}
+
+.no-orders {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 40px;
+}
+
+.order-card {
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 650px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+}
+
+.order-info p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.status-delivered {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.back-button-container {
+  text-align: right;
+  margin: 20px;
+}
+
+.back-to-home-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+  background-color: #2980b9;
+}

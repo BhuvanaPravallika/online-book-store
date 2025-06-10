@@ -1,0 +1,29 @@
+<div class="back-button-container">
+  <button class="back-to-home-btn" routerLink="/">
+    ← Back to Home
+  </button>
+</div>
+
+
+<h2 class="orders-heading">🧾 Your Orders</h2>
+
+<div *ngIf="orders.length === 0" class="no-orders">
+  You have no orders yet.
+</div>
+
+<div *ngFor="let order of orders" class="order-card">
+  <div class="order-info">
+    <p><strong>Order ID:</strong> #{{ order.orderId }}</p>
+    <p><strong>Date:</strong> {{ order.orderDate | date: 'mediumDate' }}</p>
+    <p><strong>Total:</strong> ₹{{ order.totalPrice }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span [ngClass]="{
+        'status-delivered': order.status === 'Delivered',
+        'status-pending': order.status === 'Pending',
+        'status-cancelled': order.status === 'Cancelled'
+      }" class="status-badge">{{ order.status }}</span>
+    </p>
+  </div>
+  <button class="delete-btn" (click)="deleteOrder(order.orderId)">🗑️ Delete</button>
+</div>
